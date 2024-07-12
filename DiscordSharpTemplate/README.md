@@ -1,3 +1,7 @@
+## Introduction
+
+
+
 ## Configuration
 
 Configuration can be provided in one of three primary ways:
@@ -17,33 +21,38 @@ Additional mechanisms, such as Azure KeyVault can be added, as the template uses
 Secrets should never be placed in JSON Configuration next to the deployment as it is trivially accessed from the file system. For production environments, use a Key Vault.
 
 ```json
-"ConfigurationRoot": {
+{
+  "ConfigurationRoot": {
     "Discord": {
-        "Prefixes": [ "!", "$" ]
+      "Prefixes": [
+        "!",
+        "$"
+      ]
     }
+  }
 }
 ```
 
 #### Environment Variables
 
-Environments are the "least worst" place to put secrets, they are still trivially accessable from anything that can dump the process or docker address space so doesn't provide any meaningful security. Use a Key Vault to store production secrets.
+Environment variables are the "least bad place" to put secrets, they are still trivially accessible from anything that can dump the process or docker address space so doesn't provide any meaningful security. Use a Key Vault to store production secrets.
 
 ```bash
 EXPORT ConfigurationRoot__Discord__Prefixes__0="!"
 EXPORT ConfigurationRoot__Discord__Prefixes__1="*"
 ```
 
-**Note: it's important to include the indexer on the end, it's not simply enough to pass a stringified array as an environment variable.**
+**Note: it's important to include the indexer on the end, it's not simply enough to pass an array as an environment variable.**
 
 #### Command Line Arguments
 
-Command Line Arguments are generally accessible by simply looking at the the process list so are an inappropiate place to store secrets. For production purposes use a Key Vault or similar.
+Command Line Arguments are generally accessible by simply looking at the process list so are an inappropriate place to store secrets. For production purposes use a Key Vault or similar.
 
 ```bash
 ./discord-bot --ConfigurationRoot:Discord:Prefixes:0 "!" --ConfigurationRoot:Discord:Prefixes:1 "*"
 ```
 
-### Confiuration Options
+### Configuration Options
 
 #### Prefixes (String[])
 
@@ -60,10 +69,12 @@ Do not include the prefix in the `CommandAttribute`!
 Taken from the Discord Developer site, this is the actual token use to connect to a Discord Application, it should be kept secret:
 
 ```json
-"ConfigurationRoot": {
+{
+  "ConfigurationRoot": {
     "Discord": {
-        "BotToken": "MT...MA"
+      "BotToken": "MT...MA"
     }
+  }
 }
 ```
 
