@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Richard Slater",
+    "classifications": [ "Discord", "Chatbot", "Instant Messenger", "Assistant", "Bot" ],
+    "identity": "DiscordSharpTemplate",
+    "name": "DiscordSharp IoC Example",
+    "shortName": "DiscordSharpTemplate",
+    "sourceName": "DiscordSharpTemplate",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    }
+  }
