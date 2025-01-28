@@ -2,7 +2,7 @@
 
 namespace DiscordSharpTemplate.Configuration;
 
-public class DiscordBotConfiguration {
+public class DiscordConfiguration {
     public string? BotToken { get; set; }
-    public string[]? Prefixes { get; set;  } 
+    public string[]? Prefixes { get; set; }
 }

@@ -10,25 +10,27 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="DSharpPlus" Version="4.4.9"/>
-        <PackageReference Include="DSharpPlus.CommandsNext" Version="4.4.9"/>
+        <PackageReference Include="DSharpPlus" Version="4.5.0"/>
+        <PackageReference Include="DSharpPlus.CommandsNext" Version="4.5.0"/>
         <PackageReference Include="FluentResults" Version="3.16.0"/>
-        <PackageReference Include="Microsoft.Bcl.TimeProvider" Version="8.0.1"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0"/>
-        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
-        <PackageReference Include="OpenTelemetry" Version="1.9.0"/>
-        <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0"/>
-        <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.9.0"/>
+        <PackageReference Include="Microsoft.Bcl.TimeProvider" Version="9.0.1"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.1"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1"/>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1"/>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.1"/>
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.1"/>
+        <PackageReference Include="Serilog" Version="4.2.0"/>
+        <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0"/>
+        <PackageReference Include="Serilog.Settings.Configuration" Version="9.0.0"/>
+        <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="config.json" />
-      <Content Include="config.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+        <None Remove="config.json"/>
+        <Content Include="config.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <None Include="Commands\ExampleCommands.cs" />
     </ItemGroup>
 
 </Project>
