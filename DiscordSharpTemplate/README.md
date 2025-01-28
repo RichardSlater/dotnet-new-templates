@@ -41,8 +41,8 @@ can dump the process or docker address space so doesn't provide any meaningful s
 production secrets.
 
 ```bash
-EXPORT ConfigurationRoot__Discord__Prefixes__0="!"
-EXPORT ConfigurationRoot__Discord__Prefixes__1="*"
+EXPORT Bot_Discord__Prefixes__0="!"
+EXPORT Bot__Discord__Prefixes__1="*"
 ```
 
 **Note: it's important to include the indexer on the end, it's not simply enough to pass an array as an environment
@@ -54,7 +54,7 @@ Command Line Arguments are generally accessible by simply looking at the process
 store secrets. For production purposes use a Key Vault or similar.
 
 ```bash
-./discord-bot --ConfigurationRoot:Discord:Prefixes:0 "!" --ConfigurationRoot:Discord:Prefixes:1 "*"
+./discord-bot --Bot:Discord:Prefixes:0 "!" --Bot:Discord:Prefixes:1 "*"
 ```
 
 ### Configuration Options
@@ -72,12 +72,12 @@ Do not include the prefix in the `CommandAttribute`!
 
 #### BotToken
 
-Taken from the [Discord Developer site](https://discord.com/developers/applications), this is the actual token use to connect to a Discord Application, it should be
+You can obtain a Bot Token from the [Discord Developer site](https://discord.com/developers/applications), this is the actual token use to connect to a Discord Application, it should be
 kept secret:
 
 ```json
 {
-  "ConfigurationRoot": {
+  "Bot": {
     "Discord": {
       "BotToken": "MT...MA"
     }

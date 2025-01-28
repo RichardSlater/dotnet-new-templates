@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace DiscordSharpTemplate.Configuration;
 
-public static class DiscordSharpExtensions {
+public static class DSharpPlusExtensions {
     public static IServiceCollection AddDiscord(this IServiceCollection services, BotConfiguration config) {
         return services.AddSingleton<DiscordClient>(serviceProvider => {
             var logger = serviceProvider.GetService<ILogger<Program>>();
