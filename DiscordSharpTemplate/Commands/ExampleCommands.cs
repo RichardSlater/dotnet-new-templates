@@ -2,8 +2,7 @@
 
 using DiscordSharpTemplate.Helpers;
 using DiscordSharpTemplate.Services;
-using DSharpPlus.CommandsNext;
-using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.Logging;
 
 namespace DiscordSharpTemplate.Commands;
@@ -12,16 +11,16 @@ public class ExampleCommands(
     IExampleService exampleService,
     IAuthorisationService authorisationService,
     ILogger<ExampleCommands> logger)
-    : BaseCommandModule {
-    [Command("hello")]
-    public async Task Hello(CommandContext ctx) {
-        await ctx.RespondAsync("hello");
+    : ApplicationCommandModule {
+    [SlashCommand("hello", "Says hello")]
+    public async Task Hello(InteractionContext ctx) {
+        await ctx.CreateResponseAsync("hello");
     }
 
-    [Command("start")]
-    public async Task Start(CommandContext ctx) {
+    [SlashCommand("start", "Starts the example service")]
+    public async Task Start(InteractionContext ctx) {
         if (!authorisationService.HasPermission(WellKnownRoles.Administrators, ctx.User)) {
-            await ctx.RespondAsync("Sorry, you are not authorised to run this command.");
+            await ctx.CreateResponseAsync("Sorry, you are not authorised to run this command.");
             return;
         }
 
@@ -29,10 +28,10 @@ public class ExampleCommands(
         await ctx.RespondToCommand(result, logger);
     }
 
-    [Command("stop")]
-    public async Task Stop(CommandContext ctx) {
+    [SlashCommand("stop", "Stops the example service")]
+    public async Task Stop(InteractionContext ctx) {
         if (!authorisationService.HasPermission(WellKnownRoles.Administrators, ctx.User)) {
-            await ctx.RespondAsync("Sorry, you are not authorised to run this command.");
+            await ctx.CreateResponseAsync("Sorry, you are not authorised to run this command.");
             return;
         }
 

@@ -11,7 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="DSharpPlus" Version="4.5.0"/>
-        <PackageReference Include="DSharpPlus.CommandsNext" Version="4.5.0"/>
+        <PackageReference Include="DSharpPlus.SlashCommands" Version="4.5.0" />
         <PackageReference Include="FluentResults" Version="3.16.0"/>
         <PackageReference Include="Microsoft.Bcl.TimeProvider" Version="9.0.1"/>
         <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.1"/>

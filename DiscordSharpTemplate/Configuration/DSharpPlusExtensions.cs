@@ -2,7 +2,7 @@
 
 using System.Reflection;
 using DSharpPlus;
-using DSharpPlus.CommandsNext;
+using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -31,9 +31,8 @@ public static class DSharpPlusExtensions {
                 TokenType = TokenType.Bot,
                 Intents = DiscordIntents.AllUnprivileged | DiscordIntents.MessageContents
             });
-            var commands = client.UseCommandsNext(new CommandsNextConfiguration {
+            var commands = client.UseSlashCommands(new SlashCommandsConfiguration {
                 Services = serviceProvider,
-                StringPrefixes = prefixes
             });
             commands.RegisterCommands(Assembly.GetExecutingAssembly());
             return client;
